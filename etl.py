@@ -1,7 +1,9 @@
-import pandas as pd
+from csv_class import CsvProcessor
 
-df = pd.read_csv('./vendas.csv')
+arquivo_csv = './vendas.csv'
+colunas = ['estado','preço']
+atributos = ['SP',450]
 
-df_filtrado = df[df['estado']=='SP']
-
-print(df_filtrado)
+obj_csv = CsvProcessor(arquivo_csv)
+obj_csv.carregar_csv()
+print(obj_csv.filtrar_por(colunas=colunas, atributos=atributos))
